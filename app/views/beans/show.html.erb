@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bean.name %>
+</p>
+
+<p>
+  <strong>Bean type:</strong>
+  <%= @bean.bean_type %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @bean.supplier_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bean.description %>
+</p>
+
+<%= link_to 'Edit', edit_bean_path(@bean) %> |
+<%= link_to 'Back', beans_path %>

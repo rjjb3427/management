@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bean:</strong>
+  <%= @arrival.bean_id %>
+</p>
+
+<p>
+  <strong>Arrival type:</strong>
+  <%= @arrival.arrival_type %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @arrival.date %>
+</p>
+
+<p>
+  <strong>Soldout:</strong>
+  <%= @arrival.soldout %>
+</p>
+
+<%= link_to 'Edit', edit_arrival_path(@arrival) %> |
+<%= link_to 'Back', arrivals_path %>

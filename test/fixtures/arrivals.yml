@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bean_id: 1
+  arrival_type: MyString
+  date: 2016-01-25
+  soldout: false
+
+two:
+  bean_id: 1
+  arrival_type: MyString
+  date: 2016-01-25
+  soldout: false

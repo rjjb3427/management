@@ -1,0 +1,34 @@
+<%= form_for(@arrival) do |f| %>
+  <% if @arrival.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@arrival.errors.count, "error") %> prohibited this arrival from being saved:</h2>
+
+      <ul>
+      <% @arrival.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bean_id %><br>
+    <%= f.collection_select :bean_id, @beans, :id, :name  %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :arrival_type %><br>
+    <%= f.select :arrival_type, ['bean_buy', 'stock'], {include_blank: '選択して下さい'} %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :soldout %><br>
+    <%= f.check_box :soldout %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
