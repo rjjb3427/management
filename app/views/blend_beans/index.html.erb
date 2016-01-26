@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blend Beans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bean</th>
+      <th>Blended name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blend_beans.each do |blend_bean| %>
+      <tr>
+        <td><%= blend_bean.bean_id %></td>
+        <td><%= blend_bean.blended_name %></td>
+        <td><%= link_to 'Show', blend_bean %></td>
+        <td><%= link_to 'Edit', edit_blend_bean_path(blend_bean) %></td>
+        <td><%= link_to 'Destroy', blend_bean, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blend bean', new_blend_bean_path %>

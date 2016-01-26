@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bean Buys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Arrival</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bean_buys.each do |bean_buy| %>
+      <tr>
+        <td><%= bean_buy.arrival_id %></td>
+        <td><%= bean_buy.cost %></td>
+        <td><%= link_to 'Show', bean_buy %></td>
+        <td><%= link_to 'Edit', edit_bean_buy_path(bean_buy) %></td>
+        <td><%= link_to 'Destroy', bean_buy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bean buy', new_bean_buy_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@straight_bean) do |f| %>
+  <% if @straight_bean.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@straight_bean.errors.count, "error") %> prohibited this straight_bean from being saved:</h2>
+
+      <ul>
+      <% @straight_bean.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bean_id %><br>
+    <%= f.collection_select :bean_id, @beans, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :loast %><br>
+    <%= f.text_field :loast %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

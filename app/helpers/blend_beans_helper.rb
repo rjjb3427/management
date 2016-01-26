@@ -1,0 +1,2 @@
+module BlendBeansHelper
+end

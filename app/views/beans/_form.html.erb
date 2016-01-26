@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :bean_type %><br>
-    <%= f.text_field :bean_type %>
+    <%= f.select :bean_type, ['blend','straight'], {include_blank: '選択して下さい'} %>
   </div>
   <div class="field">
     <%= f.label :supplier_id %><br>
-    <%= f.number_field :supplier_id %>
+    <%= f.collection_select :supplier_id, @suppliers, :id, :name, {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

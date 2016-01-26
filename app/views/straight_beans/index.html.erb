@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Straight Beans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bean</th>
+      <th>Loast</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @straight_beans.each do |straight_bean| %>
+      <tr>
+        <td><%= straight_bean.bean_id %></td>
+        <td><%= straight_bean.loast %></td>
+        <td><%= link_to 'Show', straight_bean %></td>
+        <td><%= link_to 'Edit', edit_straight_bean_path(straight_bean) %></td>
+        <td><%= link_to 'Destroy', straight_bean, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Straight bean', new_straight_bean_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @bean_buy.arrival_id %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @bean_buy.cost %>
+</p>
+
+<%= link_to 'Edit', edit_bean_buy_path(@bean_buy) %> |
+<%= link_to 'Back', bean_buys_path %>

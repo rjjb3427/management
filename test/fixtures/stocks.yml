@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arrival_id: 1
+  stockholder_id: 1
+  cost: 1
+  dividend: 1
+
+two:
+  arrival_id: 1
+  stockholder_id: 1
+  cost: 1
+  dividend: 1

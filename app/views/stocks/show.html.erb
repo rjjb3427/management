@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @stock.arrival_id %>
+</p>
+
+<p>
+  <strong>Stockholder:</strong>
+  <%= @stock.stockholder_id %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @stock.cost %>
+</p>
+
+<p>
+  <strong>Dividend:</strong>
+  <%= @stock.dividend %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

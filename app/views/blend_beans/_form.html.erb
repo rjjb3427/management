@@ -1,0 +1,27 @@
+<%= form_for(@blend_bean) do |f| %>
+  <% if @blend_bean.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blend_bean.errors.count, "error") %> prohibited this blend_bean from being saved:</h2>
+
+      <ul>
+      <% @blend_bean.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bean_id %><br>
+    <%= @beans_suppliers.inspect %><br>
+    <%= f.select :bean_id, @beans_suppliers, {include_blank: '選択してください'} %>
+  </div>
+  <div class="field">
+    <%= f.label :blended_name %><br>
+    改行して複数入力してください<br>
+    <%= f.text_area :blended_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

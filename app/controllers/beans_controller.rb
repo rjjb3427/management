@@ -15,6 +15,7 @@ class BeansController < ApplicationController
   # GET /beans/new
   def new
     @bean = Bean.new
+    @suppliers = Supplier.all
   end
 
   # GET /beans/1/edit

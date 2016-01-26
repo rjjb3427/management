@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124172700) do
+ActiveRecord::Schema.define(version: 20160125123409) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer  "bean_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20160124172700) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "bean_buys", force: :cascade do |t|
+    t.integer  "arrival_id"
+    t.integer  "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "beans", force: :cascade do |t|
     t.string   "name"
     t.string   "bean_type"
@@ -29,6 +36,62 @@ ActiveRecord::Schema.define(version: 20160124172700) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "blend_beans", force: :cascade do |t|
+    t.integer  "bean_id"
+    t.string   "blended_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.integer  "arrival_id"
+    t.integer  "price"
+    t.string   "temperature"
+    t.string   "variety"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.integer  "person_id"
+    t.time     "time"
+    t.string   "price_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.string   "person_type"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer  "arrival_id"
+    t.integer  "stockholder_id"
+    t.integer  "cost"
+    t.integer  "dividend"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "straight_beans", force: :cascade do |t|
+    t.integer  "bean_id"
+    t.string   "loast"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

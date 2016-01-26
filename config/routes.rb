@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :people
+  resources :menus
+  resources :stocks
+  resources :bean_buys
+  resources :suppliers
+  resources :straight_beans
+  resources :blend_beans
   resources :beans
   resources :arrivals
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bean:</strong>
+  <%= @blend_bean.bean_id %>
+</p>
+
+<p>
+  <strong>Blended name:</strong>
+  <%= @blend_bean.blended_name %>
+</p>
+
+<%= link_to 'Edit', edit_blend_bean_path(@blend_bean) %> |
+<%= link_to 'Back', blend_beans_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@bean_buy) do |f| %>
+  <% if @bean_buy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bean_buy.errors.count, "error") %> prohibited this bean_buy from being saved:</h2>
+
+      <ul>
+      <% @bean_buy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :arrival_id %><br>
+    <%= f.number_field :arrival_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %><br>
+    <%= f.number_field :cost %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
