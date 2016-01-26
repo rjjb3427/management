@@ -15,13 +15,14 @@ class BlendBeansController < ApplicationController
   # GET /blend_beans/new
   def new
     @blend_bean = BlendBean.new
-    bbeans = BlendBean.distinct.pluck(:id)
-    sbeans = StraightBean.distinct.pluck(:id)
+    escape_beans = BlendBean.distinct.pluck(:id)
+    escape_beans.concat(StraightBean.distinct.pluck(:id))
     
-    beans = Bean.where.not('id=":sbeans" OR id=":bbeans"', sbeans: sbeans, bbeans: bbeans).select(:id,:name)
-    @beans_suppliers = Array.new
+    beans = Bean.where.not(id: escape_beans)
+
+    @bean_and_supplier_list = Array.new
     beans.each do |b|
-      @beans_suppliers << ["#{b.name}/#{b.supplier}", b.supplier]
+      @bean_and_supplier_list << ["#{b.name}/#{b.supplier.name}", b.id]
     end
   end
 

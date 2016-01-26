@@ -15,7 +15,7 @@ class BeansController < ApplicationController
   # GET /beans/new
   def new
     @bean = Bean.new
-    @suppliers = Supplier.all
+    @supplier_list = Supplier.select(:id,:name).distinct
   end
 
   # GET /beans/1/edit

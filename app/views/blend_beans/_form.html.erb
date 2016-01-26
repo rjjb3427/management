@@ -13,8 +13,8 @@
 
   <div class="field">
     <%= f.label :bean_id %><br>
-    <%= @beans_suppliers.inspect %><br>
-    <%= f.select :bean_id, @beans_suppliers, {include_blank: '選択してください'} %>
+    <%= @bean_and_supplier_list.inspect %><br>
+    <%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :blended_name %><br>
