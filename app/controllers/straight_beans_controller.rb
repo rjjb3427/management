@@ -15,9 +15,15 @@ class StraightBeansController < ApplicationController
   # GET /straight_beans/new
   def new
     @straight_bean = StraightBean.new
-    bbean = BlendBean.select(:id).distinct.flatten
-    sbean = StraightBean.select(:id).distinct.flatten
-    @beans = Bean.where.not('id = :sbean OR id = :bbean', sbean: sbean, bbean: bbean).select(:id, :name).distinct
+    escape_beans = BlendBean.distinct.pluck(:id)
+    escape_beans.concat(StraightBean.distinct.pluck(:id))
+    
+    beans = Bean.where.not(id: escape_beans)
+
+    @bean_and_supplier_list = Array.new
+    beans.each do |b|
+      @bean_and_supplier_list << ["#{b.name}/#{b.supplier.name}", b.id]
+    end
   end
 
   # GET /straight_beans/1/edit

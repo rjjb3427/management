@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :bean_id %><br>
-    <%= f.collection_select :bean_id, @beans, :id, :name %>
+	<%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :loast %><br>
