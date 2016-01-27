@@ -15,11 +15,10 @@ class StraightBeansController < ApplicationController
   # GET /straight_beans/new
   def new
     @straight_bean = StraightBean.new
+    
     escape_beans = BlendBean.distinct.pluck(:id)
     escape_beans.concat(StraightBean.distinct.pluck(:id))
-    
     beans = Bean.where.not(id: escape_beans)
-
     @bean_and_supplier_list = Array.new
     beans.each do |b|
       @bean_and_supplier_list << ["#{b.name}/#{b.supplier.name}", b.id]
@@ -28,6 +27,13 @@ class StraightBeansController < ApplicationController
 
   # GET /straight_beans/1/edit
   def edit
+    escape_beans = BlendBean.distinct.pluck(:id)
+    escape_beans.concat(StraightBean.distinct.pluck(:id))
+    beans = Bean.where.not(id: escape_beans)
+    @bean_and_supplier_list = Array.new
+    beans.each do |b|
+      @bean_and_supplier_list << ["#{b.name}/#{b.supplier.name}", b.id]
+    end
   end
 
   # POST /straight_beans

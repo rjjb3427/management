@@ -20,6 +20,7 @@ class BeansController < ApplicationController
 
   # GET /beans/1/edit
   def edit
+    @supplier_list = Supplier.select(:id,:name).distinct
   end
 
   # POST /beans

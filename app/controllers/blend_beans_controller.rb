@@ -28,6 +28,15 @@ class BlendBeansController < ApplicationController
 
   # GET /blend_beans/1/edit
   def edit
+    escape_beans = BlendBean.distinct.pluck(:id)
+    escape_beans.concat(StraightBean.distinct.pluck(:id))
+    
+    beans = Bean.where.not(id: escape_beans)
+
+    @bean_and_supplier_list = Array.new
+    beans.each do |b|
+      @bean_and_supplier_list << ["#{b.name}/#{b.supplier.name}", b.id]
+    end
   end
 
   # POST /blend_beans

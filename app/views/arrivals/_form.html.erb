@@ -21,13 +21,20 @@
     <%= f.select :arrival_type, ['bean_buy', 'stock'], {include_blank: '選択して下さい'} %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label :arrival_date %><br>
+    <%= f.date_select :arrival_date %>
   </div>
+ 
   <div class="field">
     <%= f.label :soldout %><br>
     <%= f.check_box :soldout %>
   </div>
+
+  <div class="field">
+	<%= f.label :soldout_date %><br />
+	<%= f.date_select :soldout_date %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

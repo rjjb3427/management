@@ -6,11 +6,9 @@ class Bean < ActiveRecord::Base
 
   validates :name,
             presence: true
-
   validates :bean_type,
             presence: true,
             inclusion: {in: ['blend','straight']}
-
   validates :supplier_id,
             presence: true,
             inclusion: {in: Supplier.distinct.pluck(:id).flatten}

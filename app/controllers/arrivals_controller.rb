@@ -20,6 +20,7 @@ class ArrivalsController < ApplicationController
 
   # GET /arrivals/1/edit
   def edit
+    @beans = Bean.select(:id, :name).distinct
   end
 
   # POST /arrivals
@@ -70,6 +71,6 @@ class ArrivalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def arrival_params
-      params.require(:arrival).permit(:bean_id, :arrival_type, :date, :soldout)
+      params.require(:arrival).permit(:bean_id, :arrival_type, :arrival_date, :soldout, :soldout_date)
     end
 end
