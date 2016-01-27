@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<!--
 <p>
   <strong>Arrival:</strong>
   <%= @menu.arrival_id %>
+</p>
+-->
+
+<p>
+	<strong>Bean/Supplier:</strong>
+	<%= @menu.arrival.bean[:name] %>/<%= @menu.arrival.bean.supplier[:name] %>
 </p>
 
 <p>

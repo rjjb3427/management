@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :arrival_id %><br>
-    <%= f.number_field :arrival_id %>
+    <%= f.select :arrival_id, @beans_suppliers, {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :temperature %><br>
-    <%= f.text_field :temperature %>
+    <%= f.select :temperature, ['hot','iced'], {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :variety %><br>
-    <%= f.text_field :variety %>
+    <%= f.select :variety, ['black','cafe_au_lait','affogato'], {include_blank: '選択してください'}%>
   </div>
   <div class="actions">
     <%= f.submit %>

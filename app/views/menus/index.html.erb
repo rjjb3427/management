@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Arrival</th>
+      <!--<th>Arrival</th>-->
+      <th>Bean name</th>
+      <th>Supplier name</th>
       <th>Price</th>
       <th>Temperature</th>
       <th>Variety</th>
@@ -16,7 +18,9 @@
   <tbody>
     <% @menus.each do |menu| %>
       <tr>
-        <td><%= menu.arrival_id %></td>
+        <!--<td><%= menu.arrival_id %></td>-->
+        <td><%= menu.arrival.bean[:name]%></td>
+        <td><%= menu.arrival.bean.supplier[:name]%></td>
         <td><%= menu.price %></td>
         <td><%= menu.temperature %></td>
         <td><%= menu.variety %></td>
