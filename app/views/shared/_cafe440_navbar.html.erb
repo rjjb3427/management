@@ -2,5 +2,37 @@
   <span class="navbar-brand">Cafe440</span>
 </div>
 <div class="navbar-collapse collapse">
-  
+  <ul class="nav navbar-nav">
+  	<li><%= link_to "Supplier", suppliers_path %></li>
+    <li><%= link_to "Bean", beans_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Arrival
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Arrival", arrivals_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Bean buy", bean_buys_path %></li>
+        <li><%= link_to "Stock", stocks_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Menu", menus_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-togle" data-toggle="dropdown" href="#">
+        Order
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      	<li><%= link_to "Order", orders_path %></li>
+      	<li class="divider"></li>
+      	<% @navbar_menus = Menu.where(arrival_id: Arrival.where(soldout: false).pluck(:id)) %>
+      	<% @navbar_menus.each do |menu| %>
+      	  <% bean = menu.arrival.bean%>
+      	  <% supplier = bean.supplier %>
+      	  <li><%= link_to "#{menu.variety}: #{bean.name}/#{supplier.name}(#{menu.temperature})", menu %></li>
+      	<% end %>
+      </ul>
+    <li><%= link_to "Person", people_path %></li>
+  </ul>
 </div>
