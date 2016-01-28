@@ -1,4 +1,4 @@
-<%= form_for(@arrival) do |f| %>
+<%= form_for(@arrival, html: {class: "new_arrival form-horizontal"}) do |f| %>
   <% if @arrival.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@arrival.errors.count, "error") %> prohibited this arrival from being saved:</h2>
@@ -11,31 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :bean_id %><br>
-    <%= f.collection_select :bean_id, @beans, :id, :name, {include_blank: '選択してください'}  %>
-    
+    <%= f.select :bean_id, @bean_list, {include_blank: '選択してください'}, class: "form-control" %>
   </div>
-  <div class="field">
+  
+  <div class="field form-group">
     <%= f.label :arrival_type %><br>
-    <%= f.select :arrival_type, ['bean_buy', 'stock'], {include_blank: '選択して下さい'} %>
+    <%= f.select :arrival_type, ['bean_buy', 'stock'], {include_blank: '選択して下さい'}, class: "form-control" %>
   </div>
-  <div class="field">
+
+  <div class="field form-group">
     <%= f.label :arrival_date %><br>
-    <%= f.date_select :arrival_date %>
+    <%= f.date_field :arrival_date, class: "form-control" %>
   </div>
  
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :soldout %><br>
-    <%= f.check_box :soldout %>
+    <%= f.check_box :soldout, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
 	<%= f.label :soldout_date %><br />
-	<%= f.date_select :soldout_date %>
+	<%= f.date_field :soldout_date, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>

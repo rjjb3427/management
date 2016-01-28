@@ -13,5 +13,5 @@ class Menu < ActiveRecord::Base
             inclusion: {in: ['hot','iced']}
   validates :variety,
             presence: true,
-            inclusion: {in: ['black','cafe_au_lait',]}
+            inclusion: {in: ['black','cafe_au_lait','affogato']}
 end

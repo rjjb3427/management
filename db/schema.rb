@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127000735) do
+ActiveRecord::Schema.define(version: 20160128090947) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer  "bean_id"
     t.string   "arrival_type"
     t.date     "arrival_date"
     t.boolean  "soldout"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.date     "soldout_date"
+    t.integer  "amount",       default: 0, null: false
   end
 
   create_table "bean_buys", force: :cascade do |t|

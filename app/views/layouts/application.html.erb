@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
+      <%= render partial: "shared/cafe440_navbar" %>
+  	</div>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -15,12 +15,20 @@ class ArrivalsController < ApplicationController
   # GET /arrivals/new
   def new
     @arrival = Arrival.new
-    @beans = Bean.select(:id, :name).distinct
+    beans = Bean.all
+    @bean_list = Array.new
+    beans.each do |bean|
+      @bean_list << ["#{bean[:name]}/#{bean.supplier[:name]}", bean[:id]]
+    end
   end
 
   # GET /arrivals/1/edit
   def edit
-    @beans = Bean.select(:id, :name).distinct
+    beans = Bean.all
+    @bean_list = Array.new
+    beans.each do |bean|
+      @bean_list << ["#{bean[:name]}/#{bean.supplier[:name]}", bean[:id]]
+    end
   end
 
   # POST /arrivals
@@ -71,6 +79,6 @@ class ArrivalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def arrival_params
-      params.require(:arrival).permit(:bean_id, :arrival_type, :arrival_date, :soldout, :soldout_date)
+      params.require(:arrival).permit(:bean_id, :arrival_type, :amount, :arrival_date, :soldout, :soldout_date)
     end
 end

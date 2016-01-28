@@ -15,12 +15,12 @@ class BeansController < ApplicationController
   # GET /beans/new
   def new
     @bean = Bean.new
-    @supplier_list = Supplier.select(:id,:name).distinct
+    @supplier_list = Supplier.select(:id,:name)
   end
 
   # GET /beans/1/edit
   def edit
-    @supplier_list = Supplier.select(:id,:name).distinct
+    @supplier_list = Supplier.select(:id,:name)
   end
 
   # POST /beans
