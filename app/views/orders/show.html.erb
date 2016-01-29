@@ -1,15 +1,44 @@
+<%= render 'shared/index_temp_1' %>
+
 <p id="notice"><%= notice %></p>
 
+<%= render 'shared/index_temp_2' %>
+<!--
 <p>
   <strong>Menu:</strong>
   <%= @order.menu_id %>
 </p>
+-->
+<p>
+  <strong>Variety</strong>
+  <%= @order.menu.variety %>
+</p>
 
+<p>
+  <strong>Temperature</strong>
+  <%= @order.menu.temperature %>
+</p>
+
+<p>
+  <strong>Bean:</strong>
+  <%= @order.menu.arrival.bean.name %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @order.menu.arrival.bean.supplier.name %>
+</p>
+
+<!--
 <p>
   <strong>Person:</strong>
   <%= @order.person_id %>
 </p>
-
+-->
+<p>
+  <strong>Person:</strong>
+  <%= @order.person.name %>
+</p>
 <p>
   <strong>Time:</strong>
   <%= @order.time %>
@@ -20,5 +49,15 @@
   <%= @order.price_type %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Price:</strong>
+  <%= @order.price %>
+</p>
+
+<%= render 'shared/index_temp_3' %>
+
+
+<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> |
+<%= link_to 'Back', orders_path, class: "btn btn-default" %>
+
+<%= render 'shared/index_temp_4' %>

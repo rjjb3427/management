@@ -20,8 +20,7 @@ class OrdersController < ApplicationController
     all_menus = Menu.all
     @orderable_menus = Array.new
     all_menus.each do |menu|
-      arrival = menu.arrival
-      if arrival.soldout==false then
+      if menu.arrival.soldout==false then
         @orderable_menus << menu
       end
     end
@@ -33,8 +32,7 @@ class OrdersController < ApplicationController
     all_menus = Menu.all
     @orderable_menus = Array.new
     all_menus.each do |menu|
-      arrival = menu.arrival
-      if arrival.soldout==false then
+      if menu.arrival.soldout==false then
         @orderable_menus << menu
       end
     end
@@ -88,6 +86,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:menu_id, :person_id, :time, :price_type)
+      params.require(:order).permit(:menu_id, :person_id, :time, :price_type, :price)
     end
 end
