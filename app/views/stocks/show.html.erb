@@ -1,4 +1,7 @@
+<%= render 'shared/index_temp_1'%>
+
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2'%>
 
 <p>
   <strong>Arrival:</strong>
@@ -19,6 +22,8 @@
   <strong>Dividend:</strong>
   <%= @stock.dividend %>
 </p>
+<%= render 'shared/index_temp_3'%>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+<%= link_to 'Edit', edit_stock_path(@stock), class: 'btn btn-warning' %> |
+<%= link_to 'Back', stocks_path, class: 'btn btn-default' %>
+<%= render 'shared/index_temp_4'%>

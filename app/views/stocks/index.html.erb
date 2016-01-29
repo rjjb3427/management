@@ -1,6 +1,9 @@
+<%= render 'shared/index_temp_1'%>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Stocks</h1>
+<%= render 'shared/index_temp_2'%>
 
 <table>
   <thead>
@@ -20,14 +23,16 @@
         <td><%= stock.stockholder_id %></td>
         <td><%= stock.cost %></td>
         <td><%= stock.dividend %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', stock, class: 'btn btn-success' %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= render 'shared/index_temp_3'%>
 
-<%= link_to 'New Stock', new_stock_path %>
+<%= link_to 'New Stock', new_stock_path, class: 'btn btn-primary' %>
+<%= render 'shared/index_temp_4'%>
