@@ -3,8 +3,8 @@ class Order < ActiveRecord::Base
   
   validates :menu_id,
              presence: true,
-             inclusion: {in: Menu.pluck(:id)}
+             inclusion: {in: Menu.pluck(:id).flatten}
   validates :person_id,
              presence: true,
-             inclusion: {in: Person.pluck(:id)}
+             inclusion: {in: Person.pluck(:id).flatten}
 end

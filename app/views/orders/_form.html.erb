@@ -1,4 +1,4 @@
-<%= form_for(@order) do |f| %>
+<%= form_for(@order, html: {class: "new_order form-horizontal"}) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -11,23 +11,51 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :menu_id %><br>
-    <%= f.number_field :menu_id %>
+  <div class="field form-group">
+  	<table class="table table-striped">
+  		<thead>
+  			<tr>
+  				<th></th>
+  				<th>Variety</th>
+  				<th>Temperature</th>
+  				<th>Bean</th>
+  				<th>Supplier</th>
+  				<th>Price</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+           <%= f.label :menu_id %><br>
+           <% label_color = {"black" => "label label-primary",
+    	                     "cafe_au_lait" => "label label-warning", 
+    	                     "affogato" => "label label-success"} %>
+           <% temp_color = {"hot" => "label label-danger", 
+    	                    "iced" => "label label-default"} %> 
+           <% @orderable_menus.each do |menu| %>
+             <tr>
+               <td><%= f.radio_button :menu_id, menu.id, class: "form-control-sm" %></td>
+               <td><span class="<%= label_color[menu.variety] %>"><%= menu.variety %></span></td>
+               <td><span class="<%= temp_color[menu.temperature]%>"><%= menu.temperature %></span></td>
+               <td><%= menu.arrival.bean.name %></td>
+               <td><%= menu.arrival.bean.supplier.name %></td>
+               <td align="right">¥<%= menu.price %></td>
+             </tr>
+           <% end %>
+  		</tbody>
+  	</table>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :person_id %><br>
-    <%= f.number_field :person_id %>
+    <%= f.collection_select :person_id, @customers, :id, :name, {}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :time %><br>
-    <%= f.time_select :time %>
+    <%= f.datetime_select :time, end_year: 2030, start_year: 2016, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :price_type %><br>
-    <%= f.text_field :price_type %>
+    <%= f.select :price_type, ['customer', 'stockholder', 'service'], {}, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

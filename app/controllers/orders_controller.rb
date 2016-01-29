@@ -15,17 +15,36 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    
+    @customers = Person.all
+    all_menus = Menu.all
+    @orderable_menus = Array.new
+    all_menus.each do |menu|
+      arrival = menu.arrival
+      if arrival.soldout==false then
+        @orderable_menus << menu
+      end
+    end
   end
 
   # GET /orders/1/edit
   def edit
+    @customers = Person.all
+    all_menus = Menu.all
+    @orderable_menus = Array.new
+    all_menus.each do |menu|
+      arrival = menu.arrival
+      if arrival.soldout==false then
+        @orderable_menus << menu
+      end
+    end
   end
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

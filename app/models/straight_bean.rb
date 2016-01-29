@@ -5,5 +5,5 @@ class StraightBean < ActiveRecord::Base
             uniqueness: {scope: [:bean_id, :loast]}
   validates :bean_id,
             presence: true,
-            inclusion: {in: Bean.select(:id).distinct}
+            inclusion: {in: Bean.pluck(:id)}
 end

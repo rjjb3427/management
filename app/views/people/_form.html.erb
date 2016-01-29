@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :person_type %><br>
-    <%= f.text_field :person_type %>
+    <%= f.select :person_type, ['bachelor', 'master', 'doctor', 'teacher', 'staff', 'other'], {include_blank: '選択してください'} %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
