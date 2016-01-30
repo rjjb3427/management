@@ -1,4 +1,4 @@
-<%= form_for(@blend_bean) do |f| %>
+<%= form_for(@blend_bean, html: {class: "new_blend_bean form-horizontal"}) do |f| %>
   <% if @blend_bean.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@blend_bean.errors.count, "error") %> prohibited this blend_bean from being saved:</h2>
@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :bean_id %><br>
-    <%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'} %>
+    <%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :blended_name %><br>
     改行して複数入力してください<br>
-    <%= f.text_area :blended_name %>
+    <%= f.text_area :blended_name, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

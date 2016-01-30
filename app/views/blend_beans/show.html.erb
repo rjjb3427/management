@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Bean:</strong>
@@ -9,6 +11,9 @@
   <strong>Blended name:</strong>
   <%= @blend_bean.blended_name %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_blend_bean_path(@blend_bean) %> |
-<%= link_to 'Back', blend_beans_path %>
+<%= link_to 'New Blend bean', new_blend_bean_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_blend_bean_path(@blend_bean), class: "btn btn-warning" %> |
+<%= link_to 'Back', blend_beans_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

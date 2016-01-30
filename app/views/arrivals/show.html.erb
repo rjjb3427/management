@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_1' %>
+
+  <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Bean:</strong>
@@ -24,6 +27,9 @@
   <strong>Soldout date:</strong>
   <%= @arrival.soldout_date %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_arrival_path(@arrival) %> |
-<%= link_to 'Back', arrivals_path %>
+<%= link_to 'New Arrival', new_arrival_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_arrival_path(@arrival), class: "btn btn-warning"  %> |
+<%= link_to 'Back', arrivals_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

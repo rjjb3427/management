@@ -15,7 +15,7 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
-    menu_arrivals = Arrival.all.distinct.pluck(:id,:bean_id)
+    menu_arrivals = Arrival.pluck(:id,:bean_id)
     @beans_suppliers = Array.new
     menu_arrivals.each do |arrival_id, bean_id|
       if bean = Bean.find(bean_id) then

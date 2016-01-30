@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Arrival:</strong>
@@ -9,6 +11,9 @@
   <strong>Cost:</strong>
   <%= @bean_buy.cost %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_bean_buy_path(@bean_buy) %> |
-<%= link_to 'Back', bean_buys_path %>
+<%= link_to 'New Bean buy', new_bean_buy_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_bean_buy_path(@bean_buy), class: "btn btn-warning" %> |
+<%= link_to 'Back', bean_buys_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

@@ -1,4 +1,4 @@
-<%= form_for(@straight_bean) do |f| %>
+<%= form_for(@straight_bean, html: {class: "new_straight_bean form-horizontal"}) do |f| %>
   <% if @straight_bean.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@straight_bean.errors.count, "error") %> prohibited this straight_bean from being saved:</h2>
@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :bean_id %><br>
-	<%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'} %>
+	<%= f.select :bean_id, @bean_and_supplier_list, {include_blank: '選択してください'}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :loast %><br>
-    <%= f.text_field :loast %>
+    <%= f.text_field :loast, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

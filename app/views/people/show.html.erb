@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Name:</strong>
@@ -14,6 +16,9 @@
   <strong>Description:</strong>
   <%= @person.description %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'New Person', new_person_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_person_path(@person), class: "btn btn-warning" %> |
+<%= link_to 'Back', people_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

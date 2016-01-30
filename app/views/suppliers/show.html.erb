@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Name:</strong>
@@ -9,6 +11,9 @@
   <strong>Location:</strong>
   <%= @supplier.location %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
-<%= link_to 'Back', suppliers_path %>
+<%= link_to 'New Supplier', new_supplier_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_supplier_path(@supplier), class: "btn btn-warning" %> |
+<%= link_to 'Back', suppliers_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <!--
 <p>
@@ -26,6 +28,9 @@
   <strong>Variety:</strong>
   <%= @menu.variety %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+<%= link_to 'New Menu', new_menu_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_menu_path(@menu), class: "btn btn-warning" %> |
+<%= link_to 'Back', menus_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>

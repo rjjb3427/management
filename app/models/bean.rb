@@ -11,5 +11,5 @@ class Bean < ActiveRecord::Base
             inclusion: {in: ['blend','straight']}
   validates :supplier_id,
             presence: true,
-            inclusion: {in: Supplier.distinct.pluck(:id).flatten}
+            inclusion: {in: Supplier.pluck(:id).flatten}
 end

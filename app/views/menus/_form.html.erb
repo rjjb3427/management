@@ -1,4 +1,4 @@
-<%= form_for(@menu) do |f| %>
+<%= form_for(@menu, html: "new_class form-horizontal") do |f| %>
   <% if @menu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :arrival_id %><br>
-    <%= f.select :arrival_id, @beans_suppliers, {include_blank: '選択してください'} %>
+    <%= f.select :arrival_id, @beans_suppliers, {include_blank: '選択してください'}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :temperature %><br>
-    <%= f.select :temperature, ['hot','iced'], {include_blank: '選択してください'} %>
+    <%= f.select :temperature, ['hot','iced'], {include_blank: '選択してください'}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :variety %><br>
     <%= f.select :variety, ['black','cafe_au_lait','affogato'], {include_blank: '選択してください'}%>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

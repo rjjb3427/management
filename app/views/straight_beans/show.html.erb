@@ -1,4 +1,6 @@
+<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
+<%= render 'shared/index_temp_2' %>
 
 <p>
   <strong>Bean:</strong>
@@ -9,6 +11,9 @@
   <strong>Loast:</strong>
   <%= @straight_bean.loast %>
 </p>
+<%= render 'shared/index_temp_3' %>
 
-<%= link_to 'Edit', edit_straight_bean_path(@straight_bean) %> |
-<%= link_to 'Back', straight_beans_path %>
+<%= link_to 'New Straight bean', new_straight_bean_path, class: "btn btn-primary" %> |
+<%= link_to 'Edit', edit_straight_bean_path(@straight_bean), class: "btn btn-warning" %> |
+<%= link_to 'Back', straight_beans_path, class: "btn btn-default" %>
+<%= render 'shared/index_temp_4' %>
