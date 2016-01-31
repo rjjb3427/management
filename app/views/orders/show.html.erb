@@ -1,8 +1,10 @@
-<%= render 'shared/index_temp_1' %>
+<%= render 'shared/header_start' %>
 
 <p id="notice"><%= notice %></p>
 
-<%= render 'shared/index_temp_2' %>
+<%= render 'shared/header_end' %>
+<%= render 'shared/rowset_start' %>
+
 <!--
 <p>
   <strong>Menu:</strong>
@@ -54,11 +56,12 @@
   <%= @order.price %>
 </p>
 
-<%= render 'shared/index_temp_3' %>
+<%= render 'shared/rowset_end' %>
+<%= render 'shared/footer_start' %>
 
 
 <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %> |
 <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> |
 <%= link_to 'Back', orders_path, class: "btn btn-default" %>
 
-<%= render 'shared/index_temp_4' %>
+<%= render 'shared/footer_end' %>

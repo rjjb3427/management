@@ -41,7 +41,7 @@
       	<% @navbar_menus.each do |menu| %>
       	  <% bean = menu.arrival.bean%>
       	  <% supplier = bean.supplier %>
-      	  <li><%= link_to "#{menu.variety}: #{bean.name}/#{supplier.name}(#{menu.temperature})", menu %></li>
+      	  <li><%= link_to "#{menu.variety}: #{bean.name}/#{supplier.name}(#{menu.temperature})", controller: "orders", action: "new", menu_id: menu %></li>
       	<% end %>
       </ul>
     <li><%= link_to "Person", people_path %></li>

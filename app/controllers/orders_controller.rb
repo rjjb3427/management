@@ -15,6 +15,9 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    unless params[:menu_id].nil? then
+      @order_menu = Menu.find(params[:menu_id])
+    end
     
     @customers = Person.all
     all_menus = Menu.all

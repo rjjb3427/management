@@ -1,14 +1,16 @@
-<%= render 'shared/index_temp_1' %>
+<%= render 'shared/header_start' %>
 
 <h1>Editing Order</h1>
 
-<%= render 'shared/index_temp_2' %>
+<%= render 'shared/header_end' %>
+<%= render 'shared/rowset_start' %>
 
 <%= render 'form' %>
+<%= render 'shared/rowset_end' %>
 
-<%= render 'shared/index_temp_3' %>
+<%= render 'shared/footer_start' %>
 
 <%= link_to 'Show', @order, class: "btn btn-success" %> |
 <%= link_to 'Back', orders_path, class: "btn btn-default" %>
 
-<%= render 'shared/index_temp_4' %>
+<%= render 'shared/footer_end' %>

@@ -30,6 +30,7 @@
     	                     "affogato" => "label label-success"} %>
            <% temp_color = {"hot" => "label label-danger", 
     	                    "iced" => "label label-default"} %> 
+           <% if @order_menu.nil? then %>
            <% @orderable_menus.each do |menu| %>
              <tr>
                <td><%= f.radio_button :menu_id, menu.id, class: "form-control-sm" %></td>
@@ -38,6 +39,16 @@
                <td><%= menu.arrival.bean.name %></td>
                <td><%= menu.arrival.bean.supplier.name %></td>
                <td align="right">¥<%= menu.price %></td>
+             </tr>
+           <% end %>
+           <% else %>
+             <tr>
+               <td><%= f.radio_button :menu_id, @order_menu.id, class: "form-control-sm" %></td>
+               <td><span class="<%= label_color[@order_menu.variety] %>"><%= @order_menu.variety %></span></td>
+               <td><span class="<%= temp_color[@order_menu.temperature]%>"><%= @order_menu.temperature %></span></td>
+               <td><%= @order_menu.arrival.bean.name %></td>
+               <td><%= @order_menu.arrival.bean.supplier.name %></td>
+               <td align="right">¥<%= @order_menu.price %></td>
              </tr>
            <% end %>
   		</tbody>
