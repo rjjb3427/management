@@ -1,19 +1,23 @@
-<%= render 'shared/index_temp_1' %>
+<%= render 'shared/header_start' %>
 <p id="notice"><%= notice %></p>
-<%= render 'shared/index_temp_2' %>
+<%= render 'shared/header_end' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @supplier.name %>
-</p>
+<%= render 'shared/rowset_start' %>
+  <legend><%= @supplier.name %></legend>
+  <p>
+    <strong>Location:</strong>
+    <%= @supplier.location %>
+  </p>
+<%= render 'shared/rowset_end'%>
 
-<p>
-  <strong>Location:</strong>
-  <%= @supplier.location %>
-</p>
-<%= render 'shared/index_temp_3' %>
+<%= render 'shared/rowset_start' %>
+  <legend>Supply Beans</legend>
+  <%= render partial: 'supply_beans', locals: { supply_beans: @supplier.beans } %>
+  <%= link_to 'New Bean', new_bean_path, class: "btn btn-danger"%>
+<%= render 'shared/rowset_end' %>
 
-<%= link_to 'New Supplier', new_supplier_path, class: "btn btn-primary" %> |
-<%= link_to 'Edit', edit_supplier_path(@supplier), class: "btn btn-warning" %> |
-<%= link_to 'Back', suppliers_path, class: "btn btn-default" %>
-<%= render 'shared/index_temp_4' %>
+<%= render 'shared/footer_start'%>
+  <%= link_to 'New Supplier', new_supplier_path, class: "btn btn-primary" %> |
+  <%= link_to 'Edit', edit_supplier_path(@supplier), class: "btn btn-warning" %> |
+  <%= link_to 'Back', suppliers_path, class: "btn btn-default" %>
+<%= render 'shared/footer_end' %>

@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Bean type</th>
+      <th>Supplier</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% supply_beans.each do |bean| %>
+      <tr>
+        <td><%= bean.name %></td>
+        <td><%= bean.bean_type %></td>
+        <td><%= bean.supplier_id %></td>
+        <td><%= bean.description %></td>
+        <td><%= link_to 'Show', bean, class: "btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_bean_path(bean), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', bean, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
