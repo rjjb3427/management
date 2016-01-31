@@ -13,7 +13,7 @@
 <%= render 'shared/rowset_start' %>
   <legend>Supply Beans</legend>
   <%= render partial: 'supply_beans', locals: { supply_beans: @supplier.beans } %>
-  <%= link_to 'New Bean', new_bean_path, class: "btn btn-danger"%>
+  <%= link_to 'New Bean', {controller: "beans", action: "new", supplier_id: @supplier.id}, class: "btn btn-danger" %>
 <%= render 'shared/rowset_end' %>
 
 <%= render 'shared/footer_start'%>

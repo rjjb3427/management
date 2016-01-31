@@ -21,7 +21,11 @@
   </div>
   <div class="field form-group">
     <%= f.label :supplier_id %><br>
-    <%= f.collection_select :supplier_id, @supplier_list, :id, :name, {include_blank: '選択してください'}, class: "form-control" %>
+    <% unless @bean_supplier.nil? then %>
+      <%= f.collection_select :supplier_id, @supplier_list, :id, :name, {selected: @bean_supplier, include_blank: '選択してください', disabled: @supplier_list.where.not(id: @bean_supplier).pluck(:id)}, class: "form-control" %>
+	<% else %>
+      <%= f.collection_select :supplier_id, @supplier_list, :id, :name, {include_blank: '選択してください'}, class: "form-control" %>
+    <% end %>
   </div>
   <div class="field form-group">
     <%= f.label :description %><br>

@@ -16,6 +16,7 @@ class BeansController < ApplicationController
   def new
     @bean = Bean.new
     @supplier_list = Supplier.select(:id,:name)
+    @bean_supplier = params[:supplier_id]
   end
 
   # GET /beans/1/edit
@@ -33,6 +34,8 @@ class BeansController < ApplicationController
         format.html { redirect_to @bean, notice: 'Bean was successfully created.' }
         format.json { render :show, status: :created, location: @bean }
       else
+        @supplier_list = Supplier.select(:id,:name)
+        @bean_supplier = Supplier.find(@bean.supplier_id)
         format.html { render :new }
         format.json { render json: @bean.errors, status: :unprocessable_entity }
       end
