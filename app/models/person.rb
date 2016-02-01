@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :stocks
+  has_many :stocks, primary_key: "id", foreign_key: "stockholder_id"
   has_many :orders, foreign_key: "person_id"
   
   validates :name,

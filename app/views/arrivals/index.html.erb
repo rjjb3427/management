@@ -1,8 +1,10 @@
-<%= render 'shared/index_temp_1' %>
 <p id="notice"><%= notice %></p>
 
+<%= render 'shared/header_start' %>
 <h1>Listing Arrivals</h1>
-<%= render 'shared/index_temp_2' %>      		
+<%= render 'shared/header_end' %>
+      		
+<%= render 'shared/rowset_start' %>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -36,8 +38,9 @@
     <% end %>
   </tbody>
 </table>
+<%= render 'shared/rowset_end' %>
 
 <br>
-<%= render 'shared/index_temp_3' %>
+<%= render 'shared/footer_start' %>
 <%= link_to 'New Arrival', new_arrival_path, class: "btn btn-primary" %>
-<%= render 'shared/index_temp_4' %>
+<%= render 'shared/footer_end' %>

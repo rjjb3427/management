@@ -10,15 +10,21 @@ class BeanBuysController < ApplicationController
   # GET /bean_buys/1
   # GET /bean_buys/1.json
   def show
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # GET /bean_buys/new
   def new
     @bean_buy = BeanBuy.new
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # GET /bean_buys/1/edit
   def edit
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # POST /bean_buys

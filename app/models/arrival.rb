@@ -1,7 +1,7 @@
 class Arrival < ActiveRecord::Base
   belongs_to :bean, foreign_key: "bean_id"
-  has_one :bean_buy
-  has_one :stock
+  has_one :bean_buy, primary_key: "id", foreign_key: "arrival_id"
+  has_one :stock, primary_key: "id", foreign_key: "arrival_id"
   has_many :menus, foreign_key: "menu_id"
 
   validates :bean_id,

@@ -38,8 +38,18 @@ class ArrivalsController < ApplicationController
 
     respond_to do |format|
       if @arrival.save
-        format.html { redirect_to @arrival, notice: 'Arrival was successfully created.' }
-        format.json { render :show, status: :created, location: @arrival }
+        #format.html { redirect_to @arrival, notice: 'Arrival was successfully created.' }
+        #format.json { render :show, status: :created, location: @arrival }
+        if @arrival.arrival_type == 'stock' then
+          format.html { redirect_to controller: "stocks", action: "new", arrival_id: @arrival.id, notice: 'Arrival was successfully created.' }
+          format.json { render :new, status: :created, location: new_stock_path }
+        elsif @arrival.arrival_type == 'bean_buy' then
+          format.html { redirect_to controller: "bean_buys", action: "new", arrival_id: @arrival.id, notice: 'Arrival was successfully created.' }
+          format.json { rendre :new, status: :created, location: new_bean_buy_path }
+        else
+          format.html { redirect_to @arrival, notice: 'Arrival was successfully created.' }
+          format.json { render :show, status: :created, location: @arrival }
+        end
       else
         format.html { render :new }
         format.json { render json: @arrival.errors, status: :unprocessable_entity }

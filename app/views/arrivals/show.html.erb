@@ -1,16 +1,15 @@
-<%= render 'shared/index_temp_1' %>
+<%= render 'shared/header_start' %>
 
   <p id="notice"><%= notice %></p>
-<%= render 'shared/index_temp_2' %>
+<%= render 'shared/header_end' %>
 
-<p>
-  <strong>Bean:</strong>
-  <%= @arrival.bean_id %>
-</p>
+<%= render 'shared/rowset_start' %>
+<legend><%= @arrival.bean.name%>'s arraival</legend>
 
+<% type_str = {'stock' => '株豆', 'bean_buy' => '購入豆'}%>
 <p>
   <strong>Arrival type:</strong>
-  <%= @arrival.arrival_type %>
+  <%= type_str[@arrival.arrival_type] %>
 </p>
 
 <p>
@@ -27,9 +26,18 @@
   <strong>Soldout date:</strong>
   <%= @arrival.soldout_date %>
 </p>
-<%= render 'shared/index_temp_3' %>
+<%= render 'shared/rowset_end' %>
 
-<%= link_to 'New Arrival', new_arrival_path, class: "btn btn-primary" %> |
-<%= link_to 'Edit', edit_arrival_path(@arrival), class: "btn btn-warning"  %> |
-<%= link_to 'Back', arrivals_path, class: "btn btn-default" %>
-<%= render 'shared/index_temp_4' %>
+<%= render 'shared/rowset_start' %>
+  <% if @arrival.arrival_type == 'stock' then %>
+    <%= render partial: "stock_info", locals: {stock: @arrival.stock} %>
+  <% elsif @arrival.arrival_type == 'bean_buy' then %>
+    <%= render partial: "bean_buy_info", locals: {bean_buy: @arrival.bean_buy} %>
+  <% end %>
+<%= render 'shared/rowset_end'%>
+
+<%= render 'shared/footer_start' %>
+  <%= link_to 'New Arrival', new_arrival_path, class: "btn btn-primary" %> |
+  <%= link_to 'Edit', edit_arrival_path(@arrival), class: "btn btn-warning"  %> |
+  <%= link_to 'Back', arrivals_path, class: "btn btn-default" %>
+<%= render 'shared/footer_end' %>

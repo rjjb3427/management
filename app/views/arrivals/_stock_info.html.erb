@@ -1,0 +1,20 @@
+<legend>Stock info</legend>
+<p>
+  <strong>Stockholder:</strong>
+  <%= stock.person.name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  ¥<%= stock.cost %>
+</p>
+
+<p>
+  <strong>Dividend:</strong>
+  ¥<%= stock.dividend %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= stock.arrival.arrival_date.next_week.next_week %>
+</p>

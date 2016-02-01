@@ -10,15 +10,21 @@ class StocksController < ApplicationController
   # GET /stocks/1
   # GET /stocks/1.json
   def show
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # GET /stocks/new
   def new
     @stock = Stock.new
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # GET /stocks/1/edit
   def edit
+    @arrival_id = params[:arrival_id]
+    @person_list = Person.all
   end
 
   # POST /stocks

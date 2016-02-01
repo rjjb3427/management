@@ -13,7 +13,7 @@
 
   <div class="field form-group">
     <%= f.label :arrival_id %><br>
-    <%= f.number_field :arrival_id, class: "form-control" %>
+    <%= f.number_field :arrival_id, value: @arrival_id, readonly: false, class: "form-control" %>
   </div>
   <div class="field form-group">
     <%= f.label :cost %><br>
